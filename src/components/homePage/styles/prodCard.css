@@ -1,0 +1,15 @@
+.prodcard {
+    width: 250px;
+    border: solid 1px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.prodcard__div {
+    width: 100%;
+}
+.prodcard__buttons {
+    display: flex;
+    gap: 20px;
+}
