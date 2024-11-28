@@ -8,6 +8,7 @@ import Register from './pages/Register'
 import ProdInfo from './pages/ProdInfo'
 import Purchases from './pages/Purchases'
 import NavBar from './components/shared/NavBar'
+import ProtectedRoutes from './pages/ProtectedRoutes'
 
 function App() {
 
@@ -18,9 +19,11 @@ function App() {
       <Route path='/' element={<HomePage />} />
       <Route path='/login' element={<Login />} />
       <Route path='/register' element={<Register />} />
-      <Route path='/cart' element={<CartPage />} />
       <Route path='/product/:id' element={<ProdInfo />} />
-      <Route path='/purchases' element={<Purchases />} />
+      <Route element={<ProtectedRoutes />}>  
+        <Route path='/cart' element={<CartPage />} />
+        <Route path='/purchases' element={<Purchases />} />
+      </Route>
      </Routes>
    </div>
   )

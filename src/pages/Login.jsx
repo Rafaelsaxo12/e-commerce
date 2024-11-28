@@ -1,21 +1,54 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
+import useAuth from '../components/hooks/useAuth';
 
 const Login = () => {
 
-  const url = 'https://e-commerce-api-v2.academlo.tech/api/v1/users/login'
+  const [token, setToken] = useState();
+
+  useEffect(() => {
+    setToken(localStorage.getItem('token'))
+  }, [])
+
+  const {handleSubmit, register, reset} = useForm();
+
+  const submit = async data => {
+   await useAuth('/users/login', data); 
+    reset({
+      email: '',
+      password: '',
+    })
+    setToken(localStorage.getItem('token'));
+  }
+
+  const handleLogout = () => {
+    localStorage.removeItem('token')
+    setToken();
+  }
+
   return (
-    <div>
-      <form>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input id='email' type="text" />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input id='password' type="text" />
-        </div>
-      </form>
-    </div>
+    <>
+      {
+        token ?
+          <button onClick={handleLogout}>Logout</button>
+          :
+          <div>
+            <form onSubmit={handleSubmit(submit)}>
+              <div>
+                <label htmlFor="email">Email</label>
+                <input {...register('email')} id='email' type="email" />
+              </div>
+              <div>
+                <label htmlFor="password">Password</label>
+                <input {...register('password')} id='password' type="password" />
+              </div>
+              <button>Login</button>
+            </form>
+            <p>If you are not register yet, <Link to='/register'>register here</Link></p>
+          </div>
+      }
+    </>
   )
 }
 
