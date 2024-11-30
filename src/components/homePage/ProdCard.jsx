@@ -1,14 +1,25 @@
 import React from 'react';
 import './styles/prodCard.css';
 import { useNavigate } from 'react-router-dom';
+import { postProductsThunk } from '../../store/slices/cart.slice';
+import { useDispatch } from 'react-redux';
 
 const ProdCard = ({prod}) => {
 
     const navigate = useNavigate();
 
+    const dispatch = useDispatch(); 
+
     const handleDetail = () => {
         navigate(`/product/${prod.id}`)
     }    
+
+    const handleAddCart = () => {
+        dispatch(postProductsThunk({
+            "quantity": 1,
+            "productId": prod.id 
+        }));
+    }
 
   return (
     <article className='prodcard'>
@@ -22,7 +33,7 @@ const ProdCard = ({prod}) => {
         </ul>
         <div className='prodcard__buttons'>
             <button onClick={handleDetail}>Detail</button>
-            <button>Add to cart</button>
+            <button onClick={handleAddCart}>Add to cart</button>
         </div>
     </article>
   )

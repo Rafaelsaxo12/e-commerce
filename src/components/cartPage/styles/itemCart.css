@@ -1,0 +1,14 @@
+.itemcart {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    /* align-items: center;
+    justify-content: center; */
+    place-items: center;
+}
+.itemcart__title {
+    grid-column: span 3;
+}
+.itemcart__total {
+    grid-column: span 3;
+}

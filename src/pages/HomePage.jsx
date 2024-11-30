@@ -19,7 +19,7 @@ const HomePage = () => {
 
   const dispatch = useDispatch();
 
-  console.log(typeof(categoryValue));
+  // console.log(typeof(categoryValue));
 
   useEffect(() => {
     dispatch(getProductsThunk());
