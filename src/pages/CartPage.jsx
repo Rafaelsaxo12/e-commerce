@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCartProdsThunk } from '../store/slices/cart.slice';
+import { getCartProdsThunk, setCart } from '../store/slices/cart.slice';
 import ItemCart from '../components/cartPage/ItemCart';
-
+import './styes/cartPage.css'
+import { postPurchasesThunk } from '../store/slices/purchases.slice';
 const CartPage = () => {
 
   const cart = useSelector((store) => store.cartSlice);
@@ -13,10 +14,20 @@ const CartPage = () => {
     dispatch(getCartProdsThunk());
   }, []);
 
-  // console.log(cart);
+  const products = cart.reduce((cv, prod) => cv += prod.quantity, 0);
+
+  const total = cart.reduce(
+    (cv, prod) => cv += prod.quantity * prod.product.price, 0
+  );
+  
+  const handleBuy = () => {
+    dispatch(postPurchasesThunk());
+    dispatch(setCart([]));
+  }
   
   return (
-    <div>
+  <div className='cartpage'>
+    <div className='cartpage__container'>
       {
         cart.map(prod => (
           <ItemCart
@@ -26,6 +37,14 @@ const CartPage = () => {
         ))
       }
     </div>
+    <div className='cartpage__totals'>
+      <ul className='cartpage__list'>
+        <li className='cartpage__item'><span>Products: </span><span>{products}</span></li>
+        <li className='cartpage__item'><span>Total: </span><span>$ {total}</span></li>
+      </ul>
+      <button onClick={handleBuy} className='cartpage__btn'>Buy all products</button>
+    </div>
+  </div>
   )
 }
 
