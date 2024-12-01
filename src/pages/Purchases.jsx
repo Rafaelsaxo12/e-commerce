@@ -1,8 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { getPurchasesThunk } from '../store/slices/purchases.slice';
 import { useDispatch, useSelector } from 'react-redux';
+import ItemPurchases from '../components/purchases/ItemPurchases';
 
 const Purchases = () => {
+
+  const [buy, setBuy] = useState()
 
   const purchasesSlice = useSelector(store => store.purchasesSlice);
 
@@ -11,14 +14,35 @@ const Purchases = () => {
   useEffect(() => {
     dispatch(getPurchasesThunk());
   }, [])
-  console.log(purchasesSlice); 
+  
+useEffect(() => {
+  if (purchasesSlice[0]) {
+    setBuy(true)
+  }
+}, [purchasesSlice])
   
   return (
-    <div>
-      {
-        // 
-      }
-    </div>
+    <>
+      <div>
+        {
+          buy?
+            <div>
+              {
+                purchasesSlice.map(purchase => (
+                  <ItemPurchases
+                    key={purchase.id}
+                    purchase={purchase}
+                  />
+                ) )
+              }
+            </div>
+            :
+            <div>
+
+            </div>
+        }
+      </div>
+    </>
   )
 }
 
