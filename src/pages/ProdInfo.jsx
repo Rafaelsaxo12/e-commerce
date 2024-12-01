@@ -5,6 +5,7 @@ import ProdDetail from '../components/prodInfo/ProdDetail';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProductsThunk } from '../store/slices/products.slice';
+import './styes/prodInfo.css'
 
 const ProdInfo = () => {
 
@@ -21,7 +22,7 @@ const ProdInfo = () => {
   const product = products?.filter(prod => prod.id ===+id)[0]
 
   return (
-    <div>
+    <div className='prodinfo'>
       <ProdSlider
         product={product}
       />

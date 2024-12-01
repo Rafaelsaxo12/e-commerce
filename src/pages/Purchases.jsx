@@ -14,7 +14,11 @@ const Purchases = () => {
   console.log(purchasesSlice); 
   
   return (
-    <div>Purchases</div>
+    <div>
+      {
+        // 
+      }
+    </div>
   )
 }
 

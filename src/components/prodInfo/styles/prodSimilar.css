@@ -1,0 +1,9 @@
+.prodsimilar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+.prodsimilar__title {
+    padding-left: 20px;
+}

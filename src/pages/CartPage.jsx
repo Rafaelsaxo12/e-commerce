@@ -17,7 +17,7 @@ const CartPage = () => {
   const products = cart.reduce((cv, prod) => cv += prod.quantity, 0);
 
   const total = cart.reduce(
-    (cv, prod) => cv += prod.quantity * prod.product.price, 0
+    (cv, prod) => cv += prod.quantity * prod.product?.price, 0
   );
   
   const handleBuy = () => {

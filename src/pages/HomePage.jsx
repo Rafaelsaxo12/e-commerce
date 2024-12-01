@@ -5,6 +5,7 @@ import ProdCard from '../components/homePage/ProdCard';
 import './styes/homePage.css'
 import FilterPrice from '../components/homePage/FilterPrice';
 import FilterSelect from '../components/homePage/FilterSelect';
+const body = document.querySelector('body')
 
 const HomePage = () => {
 
@@ -12,7 +13,9 @@ const HomePage = () => {
   const [inputPrice, setInputPrice] = useState({
     min: 0,
     max: Infinity
-  })
+  });
+  const [menu, setMenu] = useState(false)
+
   const [categoryValue, setCategoryValue] = useState('')
 
   const products = useSelector((store) => store.products); 
@@ -38,21 +41,31 @@ const HomePage = () => {
       return name && price && category;
     }
 
+    const handleMenu = () => {
+        setMenu(!menu)
+    }
+
+    const handleMode = () => {
+      body.classList.toggle('dark');
+    }
   return (
     <div className='homepage'>
       
-      <div className='homepage__filters'>
-        <div>
-          <input ref={textInput} onChange={handleChange} type="text" />
-          <button>🔍</button>
-        </div>
+      <div className={`homepage__filters ${menu && 'active'}`}>
+        <button className={menu && 'active'} onClick={handleMenu}>X</button>
         <FilterPrice 
           setInputPrice={setInputPrice}
         />
         <FilterSelect
             setCategoryValue={setCategoryValue}
         />
+        <button onClick={handleMode}>Change mode</button>
       </div>
+      <div>
+        <input ref={textInput} onChange={handleChange} type="text" />
+        <button>🔍</button>
+      </div>
+      <button onClick={handleMenu}>Menu</button>
       <div className='homepage__container'>
         {
           products?.filter(cbFilter).map((prod) => (

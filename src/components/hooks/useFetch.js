@@ -12,5 +12,5 @@ const useFetch = () => {
   }
   return [apiData, getApi];
 }
-
+ 
 export default useFetch;
