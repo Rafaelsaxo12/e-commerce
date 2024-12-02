@@ -16,7 +16,7 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 function App() {
 
   return (
-   <div>
+   <div className='body'>
     <NavBar/>
      <Routes>
       <Route path='/' element={<HomePage />} />
