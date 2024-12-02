@@ -36,8 +36,8 @@ const CartPage = () => {
           />
         ))
       }
-    </div>
-    <div className='cartpage__totals'>
+    </div> 
+    <div className='cartpage__totals'> 
       <ul className='cartpage__list'>
         <li className='cartpage__item'><span>Products: </span><span>{products}</span></li>
         <li className='cartpage__item'><span>Total: </span><span>$ {total}</span></li>

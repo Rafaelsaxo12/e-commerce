@@ -5,6 +5,9 @@ import ProdCard from '../components/homePage/ProdCard';
 import './styes/homePage.css'
 import FilterPrice from '../components/homePage/FilterPrice';
 import FilterSelect from '../components/homePage/FilterSelect';
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
+import SearchIcon from '@mui/icons-material/Search';
+
 const body = document.querySelector('body')
 
 const HomePage = () => {
@@ -52,20 +55,22 @@ const HomePage = () => {
     <div className='homepage'>
       
       <div className={`homepage__filters ${menu && 'active'}`}>
-        <button className={menu && 'active'} onClick={handleMenu}>X</button>
+        <button className={`classnew ${menu && 'active'}`} onClick={handleMenu}>X</button>
         <FilterPrice 
           setInputPrice={setInputPrice}
         />
         <FilterSelect
             setCategoryValue={setCategoryValue}
         />
-        <button onClick={handleMode}>Change mode</button>
+        {/* <button onClick={handleMode}>Change mode</button> */}
       </div>
-      <div>
-        <input ref={textInput} onChange={handleChange} type="text" />
-        <button>🔍</button>
+      <div className='homepage__search'>
+        <input ref={textInput} onChange={handleChange} type="text" placeholder='What are you looking for?'/>
+        <button>
+          <SearchIcon/>
+        </button>
       </div>
-      <button onClick={handleMenu}>Menu</button>
+      <button className='homepage__filter' onClick={handleMenu}><FilterAltIcon/>Filters</button>
       <div className='homepage__container'>
         {
           products?.filter(cbFilter).map((prod) => (

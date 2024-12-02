@@ -15,16 +15,17 @@ const FilterPrice = ({setInputPrice}) => {
 
   return (
     <form className='filterprice' onSubmit={handleSubmit(submit)}>
-        <h3>Price</h3>
-        <div>
-            <label htmlFor="min">Min</label>
+        <h3 className='filterprice__title'>Price</h3>
+        <hr />
+        <div className='filterprice__prices'>
+            <label htmlFor="min">From</label>
             <input {...register('min')} id='min' type="text" />
         </div>
-        <div>
-            <label htmlFor="max">Max</label>
+        <div className='filterprice__prices'>
+            <label htmlFor="max">To</label>
             <input {...register('max')} id='max' type="text" />
         </div>
-        <button>Submit</button>
+        <button className='filterprice__btn'>Filter price</button>
     </form>
   )
 }

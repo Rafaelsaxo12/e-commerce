@@ -50,12 +50,31 @@
 }
 .prodcard__item span:last-child {
     padding-left: 15px;
+    font-weight: bold;
 }
 .prodcard__item span:first-child {
     color: gray;
+}
+.brand {
+    font-weight: 600;
 }
 .prodcard__buttons {
     padding-bottom: 20px;
     display: flex;
     gap: 20px;
+}
+.prodcard__buttons button{
+    background-color: var(--primary);
+    font-weight: 600;
+    color: white;
+}
+.prodcard__buttons button:last-child {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.prodcard__icon path {
+    color: white;
 }

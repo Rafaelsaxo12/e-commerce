@@ -10,6 +10,7 @@
     display: none;
 }
 .homepage__filters {
+    max-width: 100%;
     padding: 10px;
     position: fixed;
     top: 100px;
@@ -23,6 +24,19 @@
     align-self: self-end;
     display: none;
 }
+.homepage__search {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.homepage__search input {
+    border: 1px solid;
+    padding-left: 15px;
+    text-align: start;
+    width: 60%;
+    height: 40px;
+}
+
 .homepage__container {
     padding: 20px 20px 20px 250px;
     display: flex;
@@ -32,10 +46,19 @@
 } 
 @media (width < 850px) {
     .homepage > button {
-        display: inline-block;
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
     }
     .homepage > button.active{
         visibility: hidden;
+    }
+    .homepage__filter {
+        font-weight: 500;
+        color: white
+    }
+    .homepage__filter  path {
+        color: white
     }
     .homepage__filters{
         z-index: 10;

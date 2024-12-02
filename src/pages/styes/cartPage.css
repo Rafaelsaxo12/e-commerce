@@ -1,4 +1,7 @@
 .cartpage {
+    
+    font-size: 20px;
+    padding: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,4 +24,16 @@
     width: 100%;
     display: flex;
     justify-content: space-evenly;
+}
+.cartpage button {
+    background-color: transparent;
+    border: 1px solid var(--gray);
+}
+.cartpage__totals .cartpage__btn {
+    border-radius: 7px;
+    background-color: var(--primary);
+    font-weight: bold;
+    font-size: 20px;
+    height: 40px;
+    color: white;
 }

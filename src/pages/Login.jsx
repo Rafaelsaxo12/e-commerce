@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import useAuth from '../components/hooks/useAuth';
+import './styes/login.css'
 
 const Login = () => {
 
@@ -31,19 +32,21 @@ const Login = () => {
     <>
       {
         token ?
-          <button onClick={handleLogout}>Logout</button>
+        <div className='login__logoutcontainer'>
+          <button className='login__logout' onClick={handleLogout}>Logout </button>
+        </div>
           :
-          <div>
-            <form onSubmit={handleSubmit(submit)}>
-              <div>
+          <div className='login'>
+            <form className='login__form' onSubmit={handleSubmit(submit)}>
+              <div className='login__input'>
                 <label htmlFor="email">Email</label>
                 <input {...register('email')} id='email' type="email" />
               </div>
-              <div>
+              <div className='login__input'> 
                 <label htmlFor="password">Password</label>
                 <input {...register('password')} id='password' type="password" />
               </div>
-              <button>Login</button>
+              <button className='login__btn'>Login</button>
             </form>
             <p>If you are not register yet, <Link to='/register'>register here</Link></p>
           </div>

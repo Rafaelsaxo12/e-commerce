@@ -1,0 +1,39 @@
+.login {
+    padding: 250px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 20px;
+}
+.login__input {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 10px 0;
+}
+.login__input input{
+    height: 35px;
+    border: 1px solid var(--gray);
+}
+.login__btn {
+    color: white;
+    width: 40%;
+    height: 30px;
+    font-size: 20px;
+}
+.login__logoutcontainer {
+    padding: 0 0 150px 0;
+    display: flex;
+    justify-content: center;
+}
+.login__logout {
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 10px;
+    padding: 30px;
+    margin-top: 250px;
+}

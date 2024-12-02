@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getPurchasesThunk } from '../store/slices/purchases.slice';
 import { useDispatch, useSelector } from 'react-redux';
 import ItemPurchases from '../components/purchases/ItemPurchases';
-
+import './styes/purchases.css'
 const Purchases = () => {
 
   const [buy, setBuy] = useState()
@@ -23,7 +23,12 @@ useEffect(() => {
   
   return (
     <>
-      <div>
+    <div className='purchases__fixingcontainer'>
+      <div className='purchases__fixing'>
+    🙏 We are fixing some problems, the page will be available soon🔧
+      </div>
+    </div>
+      {/* <div>
         {
           buy?
             <div>
@@ -41,7 +46,7 @@ useEffect(() => {
 
             </div>
         }
-      </div>
+      </div> */}
     </>
   )
 }

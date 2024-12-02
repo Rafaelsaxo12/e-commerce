@@ -1,0 +1,34 @@
+.filterselect-container {
+    position: relative;
+    width: 100%;
+  }
+  
+  .filterselect {
+    font-size: 18px;
+    font-weight: 750;
+    font-family: 'Yantramanav', sans-serif;
+    width: 100%;
+    border: none;
+    background: none;
+    outline: none;
+    transition: all 0.6s ease-in-out;
+  }
+  
+  .filterselect-container::after {
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--gray);
+  }
+  
+  .filterselect:hover {
+    background-color: transparent; 
+    color: #515151;
+  }
+  
+
+  

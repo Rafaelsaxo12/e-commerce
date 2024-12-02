@@ -10,11 +10,16 @@
     justify-content: center; */
     place-items: center;
 }
-.itemcart__title {
+.itemcart__title { 
     grid-column: span 3;
 }
 .itemcart__buttons {
     display: flex;
+    justify-content: space-between;
+    margin-left: 5px;
+}
+.itemcart__btn .MuiSvgIcon-root path {
+    color: var(--dark-gray);
 }
 .itemcart__buttons > span {
     padding: 0 10px;

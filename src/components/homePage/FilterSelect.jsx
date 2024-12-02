@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import useFetch from '../hooks/useFetch';
-
+import './styles/filterSelect.css'
 const FilterSelect = ({setCategoryValue}) => {
 
    const [categories, getCategories] = useFetch();
@@ -16,16 +16,16 @@ const FilterSelect = ({setCategoryValue}) => {
    }
    
   return (
-    <select ref={itemSelect} onChange={handleChange}>
-        <option value="">all products</option>
-        {
-            categories?.map((category) => (
-                <option key={category.id} value={category.id}>
-                    {category.name}
-                </option>
-            ))
-        } 
+  <div class="filterselect-container">
+    <select class="filterselect" ref={itemSelect} onChange={handleChange}>
+      <option value="">Category</option>
+      {categories?.map((category) => (
+        <option key={category.id} value={category.id}>
+          {category.name}
+        </option>
+      ))}
     </select>
+  </div>
   )
 }
 

@@ -1,6 +1,36 @@
 .filterprice {
+    margin-left: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
+}
+.filterprice button {
+    padding: 8px 12px;
+    color: white;
+    align-self: end;
+}
+.filterprice__title {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+.filterprice__prices {
+    width: 100%;
+    height: 33px;
+    margin-left: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.filterprice__prices input {
+    border-radius: 3px;
+    border: 1px solid var(--gray);
+}
+
+hr {
+
+    width: 100%;
+    border: 1px solid var(--gray);
 }
