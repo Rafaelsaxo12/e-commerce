@@ -16,8 +16,8 @@ const FilterSelect = ({setCategoryValue}) => {
    }
    
   return (
-  <div class="filterselect-container">
-    <select class="filterselect" ref={itemSelect} onChange={handleChange}>
+  <div className="filterselect-container">
+    <select className="filterselect" ref={itemSelect} onChange={handleChange}>
       <option value="">Category</option>
       {categories?.map((category) => (
         <option key={category.id} value={category.id}>

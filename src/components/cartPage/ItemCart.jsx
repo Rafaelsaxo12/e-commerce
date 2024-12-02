@@ -1,5 +1,5 @@
 import React from 'react'
-import './styles/ItemCart.css'
+import './styles/itemCart.css'
 import { deleteProductThunk, updateProductThunk } from '../../store/slices/cart.slice'
 import { useDispatch } from 'react-redux'
 import DeleteIcon from '@mui/icons-material/Delete';

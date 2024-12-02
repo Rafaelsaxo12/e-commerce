@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getPurchasesThunk } from '../store/slices/purchases.slice';
 import { useDispatch, useSelector } from 'react-redux';
-import ItemPurchases from '../components/purchases/ItemPurchases';
+// import ItemPurchases from '../components/purchases/ItemPurchases';
 import './styes/purchases.css'
 const Purchases = () => {
 
