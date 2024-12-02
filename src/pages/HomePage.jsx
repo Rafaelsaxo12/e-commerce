@@ -58,7 +58,7 @@ const HomePage = () => {
         <button className={`classnew ${menu && 'active'}`} onClick={handleMenu}>X</button>
         <FilterPrice 
           setInputPrice={setInputPrice}
-        />
+        /> 
         <FilterSelect
             setCategoryValue={setCategoryValue}
         />
