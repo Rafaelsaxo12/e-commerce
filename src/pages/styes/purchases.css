@@ -1,7 +1,3 @@
-.purchases__fixingcontainer {
-    font-size: 20px;
-    padding: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.purchases {
+    padding-top: 60px;
 }

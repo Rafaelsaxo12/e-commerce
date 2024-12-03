@@ -1,54 +1,59 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { getPurchasesThunk } from '../store/slices/purchases.slice';
 import { useDispatch, useSelector } from 'react-redux';
-// import ItemPurchases from '../components/purchases/ItemPurchases';
+import { format, parseISO } from 'date-fns'
 import './styes/purchases.css'
-const Purchases = () => {
+import PurchaseCard from '../components/purchases/PurchasesCard';
 
-  const [buy, setBuy] = useState()
+const Purchases = () => {
 
   const purchasesSlice = useSelector(store => store.purchasesSlice);
 
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(getPurchasesThunk());
-  }, [])
-  
-useEffect(() => {
-  if (purchasesSlice[0]) {
-    setBuy(true)
-  }
-}, [purchasesSlice])
+  }, [dispatch])
+
+  const groupByDate = (items) => {
+    return items.reduce((cv, item) => {
+      const date = item.createdAt.split('T')[0];
+      if (!cv[date]) {
+        cv[date] = []
+      }
+      cv[date].push(item);
+      return cv;
+    }, {});
+  };
+
+  const groupPurchases = groupByDate(purchasesSlice)
   
   return (
-    <>
-    <div className='purchases__fixingcontainer'>
-      <div className='purchases__fixing'>
-    🙏 We are fixing some problems, the page will be available soon🔧
-      </div>
-    </div>
-      {/* <div>
-        {
-          buy?
-            <div>
-              {
-                purchasesSlice.map(purchase => (
-                  <ItemPurchases
-                    key={purchase.id}
-                    purchase={purchase}
-                  />
-                ) )
-              }
-            </div>
-            :
-            <div>
+    <div className='purchases'>
+     {
+      Object.keys(groupPurchases)?.map((date) => {
+        const formattedDate = format(parseISO(date), 'dd/MM/yyyy');
 
+        return (
+          <div key={date} className='purchases__container'>
+            <h2 className='purchases__date'>{formattedDate}</h2>
+            <div >
+              <ul className='purchases__cards'>
+                {
+                  groupPurchases[date].map((item) => (
+                    <PurchaseCard 
+                    key={item.id}
+                    purchase={item}
+                    />
+                  ))
+                }
+              </ul>
             </div>
-        }
-      </div> */}
-    </>
+          </div>
+        );
+      })
+     }
+    </div>
   )
 }
 
-export default Purchases;
+export default Purchases

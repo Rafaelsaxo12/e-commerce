@@ -24,7 +24,7 @@ const CartPage = () => {
     dispatch(postPurchasesThunk());
     dispatch(setCart([]));
   }
-  
+   
   return (
   <div className='cartpage'>
     <div className='cartpage__container'>

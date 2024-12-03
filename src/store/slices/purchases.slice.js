@@ -22,7 +22,7 @@ export const getPurchasesThunk = () => (dispatch) => {
         .then(res => dispatch(setPurchases(res.data))
         )
         .catch(err => console.log(err)
-        )
+        ) 
 }
 export const postPurchasesThunk = () => (dispatch) => {
     const url = `${urlBase}/purchases`;
