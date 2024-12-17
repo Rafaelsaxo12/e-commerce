@@ -27,7 +27,6 @@ function App() {
       </Route>
       <Route path='*' element= {<h2>This route does not exist</h2>}/>
      </Routes>
-     <hr />
       <Footer/>
    </div>
   )

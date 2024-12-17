@@ -10,7 +10,7 @@ const Footer = () => {
     <div>
         <footer className='footer'>
             <div className='footer__container'>
-                <h4 className='footer__title'>© Academlo 2024</h4>
+                <h4 className='footer__title'>© todos los derechos reservados 2024</h4>
                 <section className='footer__links'>
                 <div> 
                     <Link to='/'><InstagramIcon/></Link>
